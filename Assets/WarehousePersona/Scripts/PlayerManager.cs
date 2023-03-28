@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isMove == true && this.transform.position.x <= 47)
+        if (isMove == true && this.transform.position.x <= 38)
         {
             rbd2.velocity = Vector2.right * moveSpeed*Time.deltaTime;
         }
