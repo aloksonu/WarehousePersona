@@ -13,6 +13,8 @@ public class Transport : MonoBehaviour
         rbd2 = GetComponent<Rigidbody2D>();
         moveSpeed = 700f;
         isMove = false;
+
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NInbound);
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class Transport : MonoBehaviour
     public void MoveStart()
     {
         isMove = true;
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NTransport);
     }
     public void MoveStop()
     {
