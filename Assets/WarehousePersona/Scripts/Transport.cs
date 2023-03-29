@@ -4,30 +4,28 @@ using UnityEngine;
 
 public class Transport : MonoBehaviour
 {
-    private Rigidbody2D rbd2;
-    private float moveSpeed;
-    private bool isMove;
+    internal Rigidbody2D rbd2;
+    internal float moveSpeed;
+    internal bool isMove;
 
     void Start()
     {
         rbd2 = GetComponent<Rigidbody2D>();
-        moveSpeed = 700f;
+        moveSpeed = 1000f;
         isMove = false;
-
-        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NInbound);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isMove == true && this.transform.position.x <= 38)
-        {
-            rbd2.velocity = Vector2.right * moveSpeed*Time.deltaTime;
-        }
-        else
-        {
-            rbd2.velocity = Vector2.left * 0;
-        }
+        //if (isMove == true && this.transform.position.x <= 38)
+        //{
+        //    rbd2.velocity = Vector2.right * moveSpeed*Time.deltaTime;
+        //}
+        //else
+        //{
+        //    rbd2.velocity = Vector2.left * 0;
+        //}
     }
 
     public void MoveStart()

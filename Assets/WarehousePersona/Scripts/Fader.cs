@@ -18,6 +18,7 @@ public class Fader : MonoSingleton<Fader>
     {
         _onComplete = onComplete;
         _canvasGroup.UpdateState(true, _fadeDuration);
+        Debug.Log("Start Fader");
     }
 
     internal void BringIn()
