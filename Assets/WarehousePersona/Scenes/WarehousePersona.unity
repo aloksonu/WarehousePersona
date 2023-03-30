@@ -1192,7 +1192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &522386879
 Transform:
   m_ObjectHideFlags: 0
@@ -3474,6 +3474,12 @@ MonoBehaviour:
   transportEnvoirnment: {fileID: 724505138}
   assignGate: {fileID: 1524157011}
   assignGateEnvoirnment: {fileID: 1268953571}
+  _vCam:
+  - {fileID: 256062844}
+  - {fileID: 522386878}
+  mainCam: {fileID: 850687722}
+  btnTransport: {fileID: 1497704182}
+  btnAssignGate: {fileID: 1638154057}
 --- !u!4 &2002019950
 Transform:
   m_ObjectHideFlags: 0

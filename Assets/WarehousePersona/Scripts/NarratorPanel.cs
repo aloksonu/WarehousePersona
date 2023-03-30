@@ -13,10 +13,12 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
 
     internal string NInbound = "";
     internal string NTransport = "";
+    internal string NAssignGate = "";
     void Start()
     {
         NInbound = "<b>Inbound Processes</b>";
         NTransport = "<b>Transport</b>";
+        NAssignGate = "<b>Assign Gate</b>";
     }
 
     internal void BringInNarrator(string narratorText,

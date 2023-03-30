@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WarehousePersonaManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class WarehousePersonaManager : MonoBehaviour
     [SerializeField] GameObject transportEnvoirnment;
     [SerializeField] AssignGate assignGate;
     [SerializeField] GameObject assignGateEnvoirnment;
+    [SerializeField] private GameObject[] _vCam;
+    [SerializeField] GameObject mainCam;
+    [SerializeField] private Button btnTransport;
+    [SerializeField] private Button btnAssignGate;
     private bool isTransportCompleted;
     private bool isCallAssignGate;
 
@@ -52,7 +57,17 @@ public class WarehousePersonaManager : MonoBehaviour
         transportEnvoirnment.SetActive(false);
        // assignGate.gameObject.SetActive(true);
         assignGateEnvoirnment.SetActive(true);
-        Fader.Instance.BringOut();
+        _vCam[1].SetActive(true);
+        mainCam.transform.position = new Vector3(0,0,-10);
+        this.Invoke(nameof(CallFader),3f);
         isCallAssignGate = true;
+    }
+
+    private void CallFader()
+    {
+        btnTransport.transform.gameObject.SetActive(false);
+        btnAssignGate.transform.gameObject.SetActive(true);
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NAssignGate);
+        Fader.Instance.BringOut();
     }
 }
