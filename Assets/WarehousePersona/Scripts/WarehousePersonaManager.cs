@@ -12,18 +12,11 @@ public class WarehousePersonaManager : MonoBehaviour
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NInbound);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-         if (transport.transform.position.x >= 38)
+        if (transport.transform.position.x < 38 && isTransportCompleted == false)
         {
-            Fader.Instance.BringIn();
-            isTransportCompleted = true;
-            transport.rbd2.velocity = Vector2.left * 0;
-            Debug.Log("Greater Value");
-        }
-        if (transport.transform.position.x < 38)
-        {
-            if (transport.isMove == true && isTransportCompleted == false)
+            if (transport.isMove == true)
             {
                 transport.rbd2.velocity = Vector2.right * transport.moveSpeed * Time.deltaTime;
                 Debug.Log("Moving");
@@ -33,6 +26,14 @@ public class WarehousePersonaManager : MonoBehaviour
                 transport.rbd2.velocity = Vector2.left * 0;
                 Debug.Log("Stoped");
             }
+        }
+
+        else if (transport.transform.position.x >= 38)
+        {
+            Fader.Instance.BringIn();
+            isTransportCompleted = true;
+            transport.rbd2.velocity = Vector2.left * 0;
+            Debug.Log("Greater Value");
         }
     }
 }

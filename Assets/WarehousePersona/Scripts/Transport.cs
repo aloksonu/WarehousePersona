@@ -13,7 +13,7 @@ public class Transport : MonoBehaviour
     void Start()
     {
         rbd2 = GetComponent<Rigidbody2D>();
-        moveSpeed = 1000f;
+        moveSpeed = 500f;
         isMove = false;
         isMoveStarted = false;
         isMoveStoped = false;
@@ -22,14 +22,7 @@ public class Transport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (isMove == true && this.transform.position.x <= 38)
-        //{
-        //    rbd2.velocity = Vector2.right * moveSpeed*Time.deltaTime;
-        //}
-        //else
-        //{
-        //    rbd2.velocity = Vector2.left * 0;
-        //}
+
     }
 
     public void MoveStart()
