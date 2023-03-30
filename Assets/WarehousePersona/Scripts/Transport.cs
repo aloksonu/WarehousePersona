@@ -7,12 +7,16 @@ public class Transport : MonoBehaviour
     internal Rigidbody2D rbd2;
     internal float moveSpeed;
     internal bool isMove;
+    internal bool isMoveStarted;
+    internal bool isMoveStoped;
 
     void Start()
     {
         rbd2 = GetComponent<Rigidbody2D>();
         moveSpeed = 1000f;
         isMove = false;
+        isMoveStarted = false;
+        isMoveStoped = false;
     }
 
     // Update is called once per frame
@@ -31,10 +35,12 @@ public class Transport : MonoBehaviour
     public void MoveStart()
     {
         isMove = true;
+        isMoveStarted = true;
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NTransport);
     }
     public void MoveStop()
     {
         isMove = false;
+        isMoveStoped = true;
     }
 }

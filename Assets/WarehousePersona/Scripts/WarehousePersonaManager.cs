@@ -14,23 +14,25 @@ public class WarehousePersonaManager : MonoBehaviour
 
     void Update()
     {
-        if (transport.isMove == true && isTransportCompleted == false && transport.transform.position.x <= 38)
+         if (transport.transform.position.x >= 38)
         {
-            transport.rbd2.velocity = Vector2.right * transport.moveSpeed * Time.deltaTime;
-        }
-        //if (transport.transform.localPosition.x >= 38)
-        //{
-        //    Fader.Instance.BringIn();
-        //    isTransportCompleted = true;
-        //    transport.rbd2.velocity = Vector2.left * 0;
-        //}
-        //if(transport.isMove == false && isTransportCompleted == false && transport.transform.position.x <= 38)
-        //{
-        //    transport.rbd2.velocity = Vector2.left * 0;
-        //}
-        else
-        {
+            Fader.Instance.BringIn();
+            isTransportCompleted = true;
             transport.rbd2.velocity = Vector2.left * 0;
+            Debug.Log("Greater Value");
+        }
+        if (transport.transform.position.x < 38)
+        {
+            if (transport.isMove == true && isTransportCompleted == false)
+            {
+                transport.rbd2.velocity = Vector2.right * transport.moveSpeed * Time.deltaTime;
+                Debug.Log("Moving");
+            }
+            else
+            {
+                transport.rbd2.velocity = Vector2.left * 0;
+                Debug.Log("Stoped");
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ public class Fader : MonoSingleton<Fader>
         Debug.Log("Start Fader");
     }
 
-    internal void BringIn()
+    internal void BringOut()
     {
         _canvasGroup.UpdateState(false, _fadeDuration);
     }
