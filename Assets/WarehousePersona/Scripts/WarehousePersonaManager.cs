@@ -42,7 +42,7 @@ public class WarehousePersonaManager : MonoBehaviour
 
         else if (transport.transform.position.x >= 38 && isCallAssignGate == false)
         {
-            Fader.Instance.BringIn();
+            //Fader.Instance.BringIn();
             isTransportCompleted = true;
             transport.rbd2.velocity = Vector2.left * 0;
             Debug.Log("Greater Value");
@@ -72,7 +72,8 @@ public class WarehousePersonaManager : MonoBehaviour
 
     private void callAssignGate()
     {
-       // transport.gameObject.SetActive(false);
+         Fader.Instance.BringIn();
+        // transport.gameObject.SetActive(false);
         transportEnvoirnment.SetActive(false);
        // assignGate.gameObject.SetActive(true);
         assignGateEnvoirnment.SetActive(true);

@@ -9,5 +9,9 @@ EditorBuildSettings:
     path: Assets/WarehousePersona/Scenes/WarehousePersona.unity
     guid: 4ec3948f55cdd664289a0df91ec42947
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: b2dfc951eabf3e14c91503dc7ef4df76,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: a33067b35c794374083fc6d8c3f275b8, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: eacd3175079df5d42925405b014b9c7c, type: 2}
