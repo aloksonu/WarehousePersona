@@ -9,6 +9,7 @@ public class WarehousePersonaManager : MonoBehaviour
     [SerializeField] GameObject transportEnvoirnment;
     [SerializeField] AssignGate assignGate;
     [SerializeField] GameObject assignGateEnvoirnment;
+    [SerializeField] Verification verification;
     [SerializeField] private GameObject[] _vCam;
     [SerializeField] GameObject mainCam;
     [SerializeField] private Button btnTransport;
@@ -49,6 +50,24 @@ public class WarehousePersonaManager : MonoBehaviour
             if (isCallAssignGate == false)
             this.Invoke("callAssignGate", 2f);
         }
+
+        if(assignGateEnvoirnment.activeInHierarchy == true && assignGate.transform.position.x < 3.7)
+        { 
+        if (assignGate.isMove == true)
+        {
+            assignGate.rbd2.velocity = Vector2.right * assignGate.moveSpeed * Time.deltaTime;
+        }
+        else
+        {
+            assignGate.rbd2.velocity = Vector2.left * 0;
+        }
+       }
+
+        else if(assignGate.transform.position.x >= 3.7)
+        {
+            assignGate.rbd2.velocity = Vector2.left * 0;
+            this.Invoke(nameof(CallNarratorText), 2f);
+        }
     }
 
     private void callAssignGate()
@@ -69,5 +88,9 @@ public class WarehousePersonaManager : MonoBehaviour
         btnAssignGate.transform.gameObject.SetActive(true);
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NAssignGate);
         Fader.Instance.BringOut();
+    }
+    private void CallNarratorText()
+    {
+        NarratorText.Instance.BringIn();
     }
 }
