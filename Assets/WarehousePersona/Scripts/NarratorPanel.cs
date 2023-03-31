@@ -19,7 +19,7 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
     {
         NInbound = "<b>Inbound Processes</b>";
         NTransport = "<b>Transport</b>";
-        NAssignGate = "<b>Assign Gate</b>";
+        NAssignGate = "<b>Assign Lane</b>";
         NVerification = "<b>Verificationb>";
     }
 

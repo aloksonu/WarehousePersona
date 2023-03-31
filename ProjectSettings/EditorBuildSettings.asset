@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WarehousePersona/Scenes/WarehousePersona.unity
     guid: 4ec3948f55cdd664289a0df91ec42947
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: eacd3175079df5d42925405b014b9c7c, type: 2}
