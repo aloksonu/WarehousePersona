@@ -53,6 +53,30 @@ namespace Utilities
             canvasGroup.blocksRaycasts = newState;
         }
 
+        public static void SnapWorldToScreenPosition(this Transform myTransform, Transform targetObjectAtWorld,
+           Canvas myCanvas, Camera worldCamera, Camera canvasCamera)
+        {
+            var screen = worldCamera.WorldToScreenPoint(targetObjectAtWorld.position);
+            screen.z = (myCanvas.transform.position - canvasCamera.transform.position).magnitude;
+            var position = canvasCamera.ScreenToWorldPoint(screen);
+            myTransform.position = position;
+        }
+
+        public static float GetAnimatorClipLength(this Animator myAnimator, int animationClipHash)
+        {
+            AnimationClip[] clips = myAnimator.runtimeAnimatorController.animationClips;
+            foreach (AnimationClip clip in clips)
+            {
+                int hash = Animator.StringToHash(clip.name);
+                if (hash == animationClipHash)
+                {
+                    return clip.length;
+                }
+            }
+            Logger.LogErrorFormat("NO ANIMATION STATE WITH HASH  {0} FOUND IN {1}", animationClipHash, myAnimator.name);
+            return 0;
+        }
+
         public static bool IsMouseInside(this RectTransform rectTransform, Camera camera = null)
         {
             if (camera == null) camera = Camera.main;
