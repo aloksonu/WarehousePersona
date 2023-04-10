@@ -7084,7 +7084,7 @@ GameObject:
   - component: {fileID: 2002019950}
   - component: {fileID: 2002019949}
   m_Layer: 0
-  m_Name: WarehousePersonaManager
+  m_Name: InboundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7113,6 +7113,7 @@ MonoBehaviour:
   mainCam: {fileID: 850687722}
   btnTransport: {fileID: 1497704182}
   btnAssignGate: {fileID: 1638154057}
+  btnVarification: {fileID: 2046061301}
 --- !u!4 &2002019950
 Transform:
   m_ObjectHideFlags: 0

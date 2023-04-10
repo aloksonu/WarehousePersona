@@ -20,7 +20,7 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
         NInbound = "<b>Inbound Processes</b>";
         NTransport = "<b>Transport</b>";
         NAssignGate = "<b>Assign Lane</b>";
-        NVerification = "<b>Verificationb>";
+        NVerification = "<b>Verification</b>";
     }
 
     internal void BringInNarrator(string narratorText,
