@@ -13,14 +13,22 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
 
     internal string NInbound = "";
     internal string NTransport = "";
-    internal string NAssignGate = "";
+    internal string NAssignLane = "";
     internal string NVerification = "";
+    internal string NUnload = "";
+    internal string NChecking = "";
+    internal string NReceiving = "";
+    internal string NPutAway = "";
     void Start()
     {
         NInbound = "<b>Inbound Processes</b>";
         NTransport = "<b>Transport</b>";
-        NAssignGate = "<b>Assign Lane</b>";
+        NAssignLane = "<b>Assign Lane</b>";
         NVerification = "<b>Verification</b>";
+        NUnload = "<b>Unload</b>";
+        NChecking = "<b>Checking</b>";
+        NReceiving = "<b>Receiving</b>";
+        NPutAway = "<b>Put Away</b>";
     }
 
     internal void BringInNarrator(string narratorText,

@@ -13,27 +13,43 @@ public class Transport : MonoBehaviour
     void Start()
     {
         rbd2 = GetComponent<Rigidbody2D>();
-        moveSpeed = 500f;
+        moveSpeed = 700f;
         isMove = false;
         isMoveStarted = false;
         isMoveStoped = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.GetComponent<ProcessName>().strProcessName == "Transport")
+        {
+            Debug.Log("Transport Done");
+            StartCoroutine(StartAssignGateE());
+        }
+    }
+
+    private IEnumerator StartAssignGateE()
+    {        
+        yield return new WaitForSeconds(2f);
+        InboundManager.Instance.callAssignGate();
     }
 
     public void MoveStart()
     {
         isMove = true;
         isMoveStarted = true;
+        rbd2.velocity = Vector2.right *moveSpeed * Time.deltaTime;
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NTransport);
     }
     public void MoveStop()
     {
         isMove = false;
         isMoveStoped = true;
+        rbd2.velocity = Vector2.left * 0;
     }
 }

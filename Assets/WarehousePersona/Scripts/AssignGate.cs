@@ -27,12 +27,28 @@ public class AssignGate : MonoBehaviour
         //}
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<ProcessName>().strProcessName == "AssignGate")
+        {
+            Debug.Log("AssignGate Done");
+            StartCoroutine(StartVarificationE());
+        }
+    }
+    private IEnumerator StartVarificationE()
+    {
+        yield return new WaitForSeconds(2f);
+        InboundManager.Instance.callVarification();
+    }
+
     public void MoveStart()
     {
         isMove = true;
+        rbd2.velocity = Vector2.right * moveSpeed * Time.deltaTime;
     }
     public void MoveStop()
     {
         isMove = false;
+        rbd2.velocity = Vector2.left * 0;
     }
 }

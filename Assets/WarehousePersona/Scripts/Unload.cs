@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 public class Unload : MonoBehaviour
 {
@@ -27,5 +28,7 @@ public class Unload : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         animator.SetTrigger(AnimUnload);
+        yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimUnload) + 2f);
+        InboundManager.Instance.callChecking();
     }
 }

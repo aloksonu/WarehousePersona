@@ -25,6 +25,7 @@ public class Verification : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         btnVarification.GetComponentInChildren<TextMeshProUGUI>().text = "Varification Completed";
-
+        yield return new WaitForSeconds(1f);
+        InboundManager.Instance.callUnload();
     }
 }
