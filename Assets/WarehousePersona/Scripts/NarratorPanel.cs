@@ -19,6 +19,11 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
     internal string NChecking = "";
     internal string NReceiving = "";
     internal string NPutAway = "";
+
+    internal string NOrderReceiving = "";
+    internal string NPicking = "";
+    internal string NSorting = "";
+    internal string NLebelling = "";
     void Start()
     {
         NInbound = "<b>Inbound Processes</b>";
@@ -29,6 +34,11 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
         NChecking = "<b>Checking</b>";
         NReceiving = "<b>Receiving</b>";
         NPutAway = "<b>Put Away</b>";
+
+        NOrderReceiving = "<b>Order Receiving</b>";
+        NPicking = "<b>Picking</b>";
+        NSorting = "<b>Sorting</b>";
+        NLebelling = "<b>Lebelling</b>";
     }
 
     internal void BringInNarrator(string narratorText,
