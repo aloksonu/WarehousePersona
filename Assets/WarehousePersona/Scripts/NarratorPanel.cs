@@ -24,6 +24,7 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
     internal string NPicking = "";
     internal string NSorting = "";
     internal string NLebelling = "";
+    internal string NLoading = "";
     void Start()
     {
         NInbound = "<b>Inbound Processes</b>";
@@ -39,6 +40,7 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
         NPicking = "<b>Picking</b>";
         NSorting = "<b>Sorting</b>";
         NLebelling = "<b>Lebelling</b>";
+        NLoading = "<b>Loading</b>";
     }
 
     internal void BringInNarrator(string narratorText,

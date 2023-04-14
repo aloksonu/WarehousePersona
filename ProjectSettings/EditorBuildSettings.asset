@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WarehousePersona/Scenes/Inbound.unity
     guid: 4ec3948f55cdd664289a0df91ec42947
+  - enabled: 1
+    path: Assets/Outbound/Scenes/Outbound.unity
+    guid: 25fbd37a38cc12e47a7fa44d90a3b31c
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: b2dfc951eabf3e14c91503dc7ef4df76,
       type: 2}
