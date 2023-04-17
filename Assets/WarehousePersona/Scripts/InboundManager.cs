@@ -36,61 +36,12 @@ public class InboundManager : MonoSingleton<InboundManager>
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NInbound);
     }
 
-    //void FixedUpdate()
-    //{
-    //    if (transport.transform.position.x < 38 && isTransportCompleted == false && isCallAssignGate == false)
-    //    {
-    //        if (transport.isMove == true)
-    //        {
-    //            transport.rbd2.velocity = Vector2.right * transport.moveSpeed * Time.deltaTime;
-    //            Debug.Log("Moving");
-    //        }
-    //        else
-    //        {
-    //            transport.rbd2.velocity = Vector2.left * 0;
-    //            Debug.Log("Stoped");
-    //        }
-    //    }
-
-    //    else if (transport.transform.position.x >= 38 && isCallAssignGate == false)
-    //    {
-    //        isTransportCompleted = true;
-    //        transport.rbd2.velocity = Vector2.left * 0;
-    //        Debug.Log("Greater Value");
-
-    //        if (isCallAssignGate == false)
-    //        this.Invoke("callAssignGate", 2f);
-    //    }
-
-    //    if(assignGateEnvoirnment.activeInHierarchy == true && assignGate.transform.position.x < 3.7)
-    //    { 
-    //    if (assignGate.isMove == true)
-    //    {
-    //        assignGate.rbd2.velocity = Vector2.right * assignGate.moveSpeed * Time.deltaTime;
-    //    }
-    //    else
-    //    {
-    //        assignGate.rbd2.velocity = Vector2.left * 0;
-    //    }
-    //   }
-
-    //    else if(assignGate.transform.position.x >= 3.7 && isCallVarification == false)
-    //    {
-    //        assignGate.rbd2.velocity = Vector2.left * 0;
-    //        this.Invoke(nameof(callVarification), 2f);
-    //    }
-    //}
-
     internal void callAssignGate()
     {
          Fader.Instance.BringIn();
-        // transport.gameObject.SetActive(false);
         transportEnvoirnment.SetActive(false);
-       // assignGate.gameObject.SetActive(true);
         assignGateEnvoirnment.SetActive(true);
-        //_vCam[0].SetActive(false);
         _vCam[1].SetActive(true);
-        //mainCam.transform.position = new Vector3(0,0,-10);
         this.Invoke(nameof(CallFaderAssignGate),2f);
         isCallAssignGate = true;
     }
