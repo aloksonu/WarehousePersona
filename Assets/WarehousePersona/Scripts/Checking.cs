@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 public class Checking : MonoBehaviour
 {
     [SerializeField] private Button btnChecking;
+    [SerializeField] private Animator animator;
+    private static readonly int AnimIdle = Animator.StringToHash("Idle");
+    private static readonly int AnimVerification = Animator.StringToHash("Verification");
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +27,13 @@ public class Checking : MonoBehaviour
 
     private IEnumerator OnClickCheckingButtonE()
     {
-        yield return new WaitForSeconds(1f);
-        btnChecking.GetComponentInChildren<TextMeshProUGUI>().text = "Checking Completed";
+        btnChecking.enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        animator.SetTrigger(AnimVerification);
+        yield return new WaitForSeconds(2f);
+        animator.SetTrigger(AnimIdle);
+        yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimVerification) + 0.2f);
+        btnChecking.GetComponentInChildren<TextMeshProUGUI>().text = "Checked";
         yield return new WaitForSeconds(1f);
         InboundManager.Instance.callReceiving();
     }
