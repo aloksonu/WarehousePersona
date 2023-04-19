@@ -30,5 +30,6 @@ public class LevelPanel : MonoBehaviour
         LoadingPanel.Instance.BringIn();
         yield return SceneManager.LoadSceneAsync(currentSceneName, LoadSceneMode.Additive);
         LoadingPanel.Instance.BringOut();
+        _canvasGroup.UpdateState(true);
     }
 }

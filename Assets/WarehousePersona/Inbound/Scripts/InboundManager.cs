@@ -1,3 +1,4 @@
+using GamePlay.Quiz;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,18 @@ using Utilities;
 
 public class InboundManager : MonoSingleton<InboundManager>
 {
+    private const string QUIZ01 = "Whats the process of storing goods in warehouse called which also involves picking items from inventory and placing them on a pallet or shelf?";
+    private const string QUIZ01_A = "Put Away.";
+    private const string QUIZ01_B = "Importing.";
+    private const string QUIZ01_C = "Exporting.";
+    private const string QUIZ01_D = "Storage.";
+
+    private const string QUIZ02 = "......... is a subject-oriented, integrated, time-variant, nonvolatile collection of data in support of management decisions.";
+    private const string QUIZ02_A = "Data Warehousing.";
+    private const string QUIZ02_B = "Data Mining.";
+    private const string QUIZ02_C = "Web Mining.";
+    private const string QUIZ02_D = "Text Mining.";
+
     public Transport transport;
     public GameObject transportEnvoirnment;
     public AssignGate assignGate;
@@ -143,6 +156,38 @@ public class InboundManager : MonoSingleton<InboundManager>
 
     internal void callPutawayNarrator()
     {
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway, Quiz_01);
+    }
+
+
+    internal void Quiz_01()
+    {
+        Quizcontroller.Instance.BringQuizPanel(Quiz_02, Quiz_02, QUIZ01,
+            QUIZ01_A, new string[]
+            {
+                    QUIZ01_B, QUIZ01_C, QUIZ01_D
+            });
+    }
+
+    internal void Quiz_02()
+    {
+        Quizcontroller.Instance.BringQuizPanel(BringQuizCompletePanel, BringQuizCompletePanel, QUIZ02,
+           QUIZ02_A, new string[]
+           {
+                    QUIZ02_B, QUIZ02_C, QUIZ02_D
+           });
+    }
+    internal void Quiz_03()
+    {
+        //Quizcontroller.Instance.BringQuizPanel(Quiz_04, Quiz_04, QUIZ03,
+        //    QUIZ03_A, new string[]
+        //    {
+        //           QUIZ03_B, QUIZ03_C, QUIZ03_D
+        //    });
+    }
+
+    internal void BringQuizCompletePanel()
+    {
+        QuizCompletePanel.Instance.BringPanel();
     }
 }
