@@ -31,6 +31,7 @@ public class Picking : MonoBehaviour
         animator.SetTrigger(AnimPicking);
         yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimPicking) + 0.2f);
         btnPicking.GetComponentInChildren<TextMeshProUGUI>().text = "Picking Completed";
+        OutboundManager.Instance.StartDefOfPicking();
 
     }
 }

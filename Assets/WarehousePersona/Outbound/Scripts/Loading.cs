@@ -31,6 +31,7 @@ public class Loading : MonoBehaviour
         animator.SetTrigger(AnimLoading);
         yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimLoading) + 0.2f);
         btnLoading.GetComponentInChildren<TextMeshProUGUI>().text = "Loading Completed";
+        OutboundManager.Instance.StartDefOfLoading();
 
     }
 }

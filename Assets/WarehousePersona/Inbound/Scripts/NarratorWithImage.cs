@@ -23,6 +23,14 @@ public class NarratorWithImage : MonoSingleton<NarratorWithImage>
     internal string NChecking = "";
     internal string NReceiving = "";
     internal string NPutAway = "";
+
+    internal string NOrderReceiving = "";
+    internal string NPicking = "";
+    internal string NSorting = "";
+    internal string NLebelling = "";
+    internal string NLoading = "";
+    internal string NVerification2 = "";
+    internal string NShipping = "";
     void Start()
     {
         NInbound = "<b>Inbound Processes</b>";
@@ -33,6 +41,14 @@ public class NarratorWithImage : MonoSingleton<NarratorWithImage>
         NChecking = "<b>Checking</b><br>Initiate, implement and enforce Quality control";
         NReceiving = "<b>Receiving</b><br>The process of replenishing stocked inventory in the warehouse";
         NPutAway = "<b>Put Away</b><br>It is a broad term that encompasses every stage in the process of receiving goods";
+
+        NOrderReceiving = "<b>Order Receiving</b><br>The process of requesting a shipment to be sent to a specific location.";
+        NPicking = "<b>Picking</b><br>The process of selecting and retrieving the items from the inventory to fulfill the order.";
+        NSorting = "<b>Sorting</b><br>The process of organising the items based on their destination and shipment method.";
+        NLebelling = "<b>Lebelling</b><br>The process of attaching shipping labels and other necessary information to the package.";
+        NLoading = "<b>Loading</b><br>The process of placing the packages onto the transportation vehicle , such as a truck or cargo ship , in a secure and organized manner to ensure safe transport.";
+        NVerification2 = "<b>Verification</b><br>The process of checking all the labels and other information before shipping.";
+        NShipping = "<b>Shipping</b><br>Sending to an outbound loading gate for the assigned shipping/mailing container to load.";
 
         btnClose.onClick.AddListener(() => BringOutNarrator());
     }

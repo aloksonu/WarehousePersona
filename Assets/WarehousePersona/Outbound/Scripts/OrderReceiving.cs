@@ -32,6 +32,6 @@ public class OrderReceiving : MonoBehaviour
         animator.SetTrigger(AnimIdle);
         btnOrderReceiving.GetComponentInChildren<TextMeshProUGUI>().text = "Order Received";
         yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimOrderReceiving) + 2f);
-        //InboundManager.Instance.callChecking();
+        OutboundManager.Instance.StartDefOfOrderReceiving();
     }
 }

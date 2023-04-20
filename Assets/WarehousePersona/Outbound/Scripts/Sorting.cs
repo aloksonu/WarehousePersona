@@ -32,6 +32,6 @@ public class Sorting : MonoBehaviour
         animator.SetTrigger(AnimIdle);
         btnSorting.GetComponentInChildren<TextMeshProUGUI>().text = "Item Sorted";
         yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimSorting) + 2f);
-        //InboundManager.Instance.callChecking();
+        OutboundManager.Instance.StartDefOfSorting();
     }
 }

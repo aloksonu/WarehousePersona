@@ -20,11 +20,14 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
     internal string NReceiving = "";
     internal string NPutAway = "";
 
+    internal string NOutbound = "";
     internal string NOrderReceiving = "";
     internal string NPicking = "";
     internal string NSorting = "";
     internal string NLebelling = "";
     internal string NLoading = "";
+    internal string NVerification2 = "";
+    internal string NShipping = "";
     void Start()
     {
         NInbound = "<b>Inbound Processes</b>";
@@ -36,11 +39,14 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
         NReceiving = "<b>Receiving</b>";
         NPutAway = "<b>Put Away</b>";
 
+        NOutbound = "<b>Outbound Processes</b>";
         NOrderReceiving = "<b>Order Receiving</b>";
         NPicking = "<b>Picking</b>";
         NSorting = "<b>Sorting</b>";
         NLebelling = "<b>Lebelling</b>";
         NLoading = "<b>Loading</b>";
+        NVerification2 = "<b>Verification</b>";
+        NShipping = "<b>Shipping</b>";
     }
 
     internal void BringInNarrator(string narratorText,
@@ -62,6 +68,10 @@ public class NarratorPanel : MonoSingleton<NarratorPanel>
                 _onCompleteNarrator = null;
             });
 
+        }
+        else
+        {
+            _canvasGroup.UpdateState(false);
         }
     }
 }

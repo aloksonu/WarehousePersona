@@ -30,6 +30,7 @@ public class Shiping : MonoBehaviour
             Debug.Log("Shiping Done");
             m1.moveRight();
             m2.moveRight();
+            Invoke(nameof(StartDefOfShipping), 2f);
             // StartCoroutine(StartVarificationE());
         }
     }
@@ -48,5 +49,10 @@ public class Shiping : MonoBehaviour
     {
         isMove = false;
         rbd2.velocity = Vector2.left * 0;
+    }
+
+    private void StartDefOfShipping()
+    {
+        OutboundManager.Instance.StartDefOfShipping();
     }
 }
