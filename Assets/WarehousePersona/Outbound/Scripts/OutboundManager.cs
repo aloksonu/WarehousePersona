@@ -27,7 +27,27 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     void Start()
     {
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NOutbound);
-        StartOrderReceiving();
+        //StartOrderReceiving();
+         DesableAll();
+         StartShipping();
+    }
+
+    private void DesableAll()
+    {
+        orderReceivingEnvoirnment.SetActive(false);
+        btnOrderReceiving.transform.gameObject.SetActive(false);
+        pickingEnvoirnment.SetActive(false);
+        btnPicking.transform.gameObject.SetActive(false);
+        sortingEnvoirnment.SetActive(false);
+        btnSorting.transform.gameObject.SetActive(false);
+        lebellingEnvoirnment.SetActive(false);
+        btnLebelling.transform.gameObject.SetActive(false);
+        loadingEnvoirnment.SetActive(false);
+        btnLoading.transform.gameObject.SetActive(false);
+        verificationEnvoirnment.SetActive(false);
+        btnVerification.transform.gameObject.SetActive(false);
+        shippingEnvoirnment.SetActive(false);
+        btnShipping.transform.gameObject.SetActive(false);
     }
 
     internal void StartOrderReceiving()
