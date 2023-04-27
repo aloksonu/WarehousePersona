@@ -27,9 +27,10 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     void Start()
     {
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NOutbound);
-        //StartOrderReceiving();
          DesableAll();
-         StartShipping();
+        StartOrderReceiving();
+        //StartLebelling();
+        //StartVerification();
     }
 
     private void DesableAll()

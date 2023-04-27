@@ -7,9 +7,13 @@ using Utilities;
 public class OutboundVerification : MonoBehaviour
 {
     [SerializeField] private Button btnVerification;
-    [SerializeField] private Animator animator;
-    private static readonly int AnimIdle = Animator.StringToHash("Idle");
-    private static readonly int AnimVerification = Animator.StringToHash("Verification");
+    [SerializeField] private Animator animator1;
+    private static readonly int AnimIdle1 = Animator.StringToHash("Idle1");
+    private static readonly int AnimVerification1 = Animator.StringToHash("Lebelling1");
+
+    [SerializeField] private Animator animator2;
+    private static readonly int AnimIdle2 = Animator.StringToHash("Idle2");
+    private static readonly int AnimVerification2 = Animator.StringToHash("Lebelling2");
     void Start()
     {
         btnVerification.onClick.AddListener(OnClickAnimVerificationButton);
@@ -26,11 +30,13 @@ public class OutboundVerification : MonoBehaviour
     private IEnumerator OnClickAnimVerificationButtonE()
     {
         yield return new WaitForSeconds(0.2f);
-        //animator.SetTrigger(AnimVerification);
+        animator1.SetTrigger(AnimVerification1);
+        animator2.SetTrigger(AnimVerification2);
         yield return new WaitForSeconds(4f);
-        //animator.SetTrigger(AnimIdle);
+        animator1.SetTrigger(AnimIdle1);
+        animator2.SetTrigger(AnimIdle2);
         btnVerification.GetComponentInChildren<TextMeshProUGUI>().text = "Verified";
-        //yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimVerification) + 2f);
+        yield return new WaitForSeconds(1f);
         OutboundManager.Instance.StartDefOfVerification();
     }
 }
