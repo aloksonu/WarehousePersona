@@ -34,7 +34,7 @@ public class OutboundVerification : MonoBehaviour
         animator2.SetTrigger(AnimVerification2);
         yield return new WaitForSeconds(4f);
         animator1.SetTrigger(AnimIdle1);
-        animator2.SetTrigger(AnimIdle2);
+        //animator2.SetTrigger(AnimIdle2);
         btnVerification.GetComponentInChildren<TextMeshProUGUI>().text = "Verified";
         yield return new WaitForSeconds(1f);
         OutboundManager.Instance.StartDefOfVerification();

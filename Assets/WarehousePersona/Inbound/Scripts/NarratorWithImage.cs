@@ -66,11 +66,9 @@ public class NarratorWithImage : MonoSingleton<NarratorWithImage>
     {
         if (_onCompleteNarrator != null)
         {
-            _canvasGroup.UpdateState(false, _fadeDuration, () => {
-
-                _onCompleteNarrator();
-                _onCompleteNarrator = null;
-            });
+            _onCompleteNarrator();
+            _onCompleteNarrator = null;
+            _canvasGroup.UpdateState(false, _fadeDuration);
 
         }
     }

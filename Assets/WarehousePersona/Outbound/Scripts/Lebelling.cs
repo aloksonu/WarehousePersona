@@ -37,7 +37,7 @@ public class Lebelling : MonoBehaviour
         btnLebelling.GetComponentInChildren<TextMeshProUGUI>().text = "Items Labelled";
         yield return new WaitForSeconds(2f);
         animator1.SetTrigger(AnimIdle1);
-        animator2.SetTrigger(AnimIdle2);
+        //animator2.SetTrigger(AnimIdle2);
         checkText.text = "Labels Checked";
         yield return new WaitForSeconds(1f);
         OutboundManager.Instance.StartDefOfLebelling();
