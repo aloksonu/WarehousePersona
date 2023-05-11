@@ -36,7 +36,7 @@ public class Transport : MonoBehaviour
     private IEnumerator StartAssignGateE()
     {        
         yield return new WaitForSeconds(2f);
-        InboundManager.Instance.callAssignGate();
+        InboundManager.Instance.StartDefOfTransport();
     }
 
     public void MoveStart()
@@ -44,7 +44,7 @@ public class Transport : MonoBehaviour
         isMove = true;
         isMoveStarted = true;
         rbd2.velocity = Vector2.right *moveSpeed * Time.deltaTime;
-        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NTransport);
+        //NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NTransport);
     }
     public void MoveStop()
     {

@@ -35,6 +35,7 @@ public class Checking : MonoBehaviour
         yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimVerification) + 0.2f);
         btnChecking.GetComponentInChildren<TextMeshProUGUI>().text = "Checked";
         yield return new WaitForSeconds(1f);
-        InboundManager.Instance.callReceiving();
+        InboundManager.Instance.StartDefOfChecking();
+        //InboundManager.Instance.callReceiving();
     }
 }

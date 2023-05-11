@@ -32,13 +32,13 @@ public class AssignGate : MonoBehaviour
         if (collision.gameObject.GetComponent<ProcessName>().strProcessName == "AssignGate")
         {
             Debug.Log("AssignGate Done");
-            StartCoroutine(StartVarificationE());
+            StartCoroutine(StartDefOfAssignGate());
         }
     }
-    private IEnumerator StartVarificationE()
+    private IEnumerator StartDefOfAssignGate()
     {
         yield return new WaitForSeconds(2f);
-        InboundManager.Instance.callVarification();
+        InboundManager.Instance.StartDefOfAssignGate();
     }
 
     public void MoveStart()

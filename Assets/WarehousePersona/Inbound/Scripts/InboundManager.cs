@@ -19,11 +19,12 @@ public class InboundManager : MonoSingleton<InboundManager>
     private const string QUIZ02_C = "Web Mining.";
     private const string QUIZ02_D = "Text Mining.";
 
-    public Transport transport;
+    //public Transport transport;
     public GameObject transportEnvoirnment;
-    public AssignGate assignGate;
+    //public AssignGate assignGate;
     public GameObject assignGateEnvoirnment;
-    [SerializeField] Verification verification;
+    //[SerializeField] Verification verification;
+    public GameObject verificationEnvoirnment;
     public GameObject unloadEnvoirnment;
     public GameObject checkingEnvoirnment;
     public GameObject receivingEnvoirnment;
@@ -47,121 +48,145 @@ public class InboundManager : MonoSingleton<InboundManager>
         isCallAssignGate = false;
         isCallVarification = false;
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NInbound);
+        DesableAll();
+        StartTransport();
     }
 
-    internal void callAssignGate()
+
+    private void DesableAll()
     {
-        // Fader.Instance.BringIn();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NTransport, CallFaderAssignGate);
         transportEnvoirnment.SetActive(false);
-        assignGateEnvoirnment.SetActive(true);
+        btnTransport.transform.gameObject.SetActive(false);
+        assignGateEnvoirnment.SetActive(false);
+        btnAssignGate.transform.gameObject.SetActive(false);
+        verificationEnvoirnment.SetActive(false);
+        btnVarification.transform.gameObject.SetActive(false);
+        unloadEnvoirnment.SetActive(false);
+        btnUnload.transform.gameObject.SetActive(false);
+        checkingEnvoirnment.SetActive(false);
+        btnChecking.transform.gameObject.SetActive(false);
+        receivingEnvoirnment.SetActive(false);
+        btnReceiving.transform.gameObject.SetActive(false);
+        putawayEnvoirnment.SetActive(false);
+        btnPutaway.transform.gameObject.SetActive(false);
+    }
+
+
+    internal void StartTransport()
+    {
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NTransport);
+        transportEnvoirnment.SetActive(true);
+        btnTransport.transform.gameObject.SetActive(true);
+    }
+
+    internal void StartDefOfTransport()
+    {
+        NarratorPanel.Instance.BringOutNarrator();
         _vCam[1].SetActive(true);
-       // this.Invoke(nameof(CallFaderAssignGate),2f);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NTransport, StartAssignGate);
+    }
+
+    internal void StartAssignGate()
+    {
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NAssignLane);
+        transportEnvoirnment.SetActive(false);
+        btnTransport.transform.gameObject.SetActive(false);
+        assignGateEnvoirnment.SetActive(true);
+        btnAssignGate.transform.gameObject.SetActive(true);
+        mainCam.transform.position = new Vector3(0, 0, -10);
         isCallAssignGate = true;
     }
 
-    private void CallFaderAssignGate()
+    internal void StartDefOfAssignGate()
     {
-        mainCam.transform.position = new Vector3(0, 0, -10);
-        btnTransport.transform.gameObject.SetActive(false);
-        btnAssignGate.transform.gameObject.SetActive(true);
-        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NAssignLane);
-        //Fader.Instance.BringOut();
+        NarratorPanel.Instance.BringOutNarrator();
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NAssignLane, StartVarification);
     }
 
-    internal void callVarification()
-    {
-        //Fader.Instance.BringIn();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NAssignLane, CallfaderVarification);
-        assignGateEnvoirnment.SetActive(false);
-        btnAssignGate.transform.gameObject.SetActive(false);
-        verification.transform.gameObject.SetActive(true);
-        btnVarification.transform.gameObject.SetActive(true);
-        isCallVarification = true;
-       // this.Invoke(nameof(CallfaderVarification), 1f);
-    }
-
-    private void CallfaderVarification()
+    internal void StartVarification()
     {
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NVerification);
-        //Fader.Instance.BringOut();
+        assignGateEnvoirnment.SetActive(false);
+        btnAssignGate.transform.gameObject.SetActive(false);
+        verificationEnvoirnment.SetActive(true);
+        btnVarification.transform.gameObject.SetActive(true);
+        isCallVarification = true;
     }
-    internal void callUnload()
+
+    internal void StartDefOfVarification()
     {
-        // Fader.Instance.BringIn();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NVerification, CallfaderUnload);
-        verification.transform.gameObject.SetActive(false);
+        NarratorPanel.Instance.BringOutNarrator();
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NVerification, StartUnload);
+    }
+    internal void StartUnload()
+    {
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NUnload);
+        verificationEnvoirnment.SetActive(false);
         btnVarification.transform.gameObject.SetActive(false);
         unloadEnvoirnment.SetActive(true);
         btnUnload.transform.gameObject.SetActive(true);
-        //this.Invoke(nameof(CallfaderUnload), 1f);
     }
 
-    private void CallfaderUnload()
+    internal void StartDefOfUnload()
     {
-        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NUnload);
-        //Fader.Instance.BringOut();
+        NarratorPanel.Instance.BringOutNarrator();
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NUnload, StartChecking);
     }
 
-    internal void callChecking()
+    internal void StartChecking()
     {
-        //Fader.Instance.BringIn();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NUnload, CallfaderChecking);
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NChecking);
         unloadEnvoirnment.SetActive(false);
         btnUnload.transform.gameObject.SetActive(false);
         checkingEnvoirnment.SetActive(true);
         btnChecking.transform.gameObject.SetActive(true);
-        //this.Invoke(nameof(CallfaderChecking), 1f);
     }
 
-    private void CallfaderChecking()
+    internal void StartDefOfChecking()
     {
-        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NChecking);
-        //Fader.Instance.BringOut();
+        NarratorPanel.Instance.BringOutNarrator();
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NChecking, StartReceiving);
     }
 
-    internal void callReceiving()
+    internal void StartReceiving()
     {
-        //Fader.Instance.BringIn();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NChecking, CallfaderReceiving);
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NReceiving);
         checkingEnvoirnment.SetActive(false);
         btnChecking.transform.gameObject.SetActive(false);
         receivingEnvoirnment.SetActive(true);
         btnReceiving.transform.gameObject.SetActive(true);
-        //this.Invoke(nameof(CallfaderReceiving), 1f);
     }
 
-    private void CallfaderReceiving()
+    internal void StartDefOfReceiving()
     {
-        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NReceiving);
-        //Fader.Instance.BringOut();
+        NarratorPanel.Instance.BringOutNarrator();
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NReceiving, StartPutaway);
     }
 
-    internal void callPutaway()
+    internal void StartPutaway()
     {
-        //Fader.Instance.BringIn();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NReceiving, CallfaderPutaway);
+        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NPutAway);
         receivingEnvoirnment.SetActive(false);
         btnReceiving.transform.gameObject.SetActive(false);
         putawayEnvoirnment.SetActive(true);
         btnPutaway.transform.gameObject.SetActive(true);
-        //this.Invoke(nameof(CallfaderPutaway), 1f);
     }
 
-    private void CallfaderPutaway()
+    internal void StartDefOfPutaway()
     {
-        NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NPutAway);
-        //Fader.Instance.BringOut();
-    }
-
-    internal void callPutawayNarrator()
-    {
+        NarratorPanel.Instance.BringOutNarrator();
         NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway, Quiz_01);
     }
+
+    //internal void callPutawayNarrator()
+    //{
+    //    NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway, Quiz_01);
+    //}
 
 
     internal void Quiz_01()
     {
+        UiBg.Instance.BringIn();
         Quizcontroller.Instance.BringQuizPanel(Quiz_02, Quiz_02, QUIZ01,
             QUIZ01_A, new string[]
             {

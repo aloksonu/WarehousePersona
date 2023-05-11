@@ -29,6 +29,7 @@ public class Unload : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         animator.SetTrigger(AnimUnload);
         yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimUnload) + 2f);
-        InboundManager.Instance.callChecking();
+        InboundManager.Instance.StartDefOfUnload();
+        //InboundManager.Instance.StartChecking();
     }
 }

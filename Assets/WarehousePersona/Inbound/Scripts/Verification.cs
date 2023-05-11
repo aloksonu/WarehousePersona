@@ -35,6 +35,7 @@ public class Verification : MonoBehaviour
         yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimVerification) + 0.2f);
         btnVerification.GetComponentInChildren<TextMeshProUGUI>().text = "Verified";
         yield return new WaitForSeconds(1f);
-        InboundManager.Instance.callUnload();
+        InboundManager.Instance.StartDefOfVarification();
+        //InboundManager.Instance.StartUnload();
     }
 }

@@ -34,7 +34,8 @@ public class Putaway : MonoBehaviour
         yield return new WaitForSeconds(animator.GetAnimatorClipLength(AnimPutaway)+0.2f);
          btnPutaway.GetComponentInChildren<TextMeshProUGUI>().text = "Putaway Completed";
         yield return new WaitForSeconds(1f);
-        InboundManager.Instance.callPutawayNarrator();
+        InboundManager.Instance.StartDefOfPutaway();
+        //InboundManager.Instance.callPutawayNarrator();
 
     }
 }
