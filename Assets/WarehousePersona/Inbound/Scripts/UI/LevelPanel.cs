@@ -33,3 +33,11 @@ public class LevelPanel : MonoBehaviour
         _canvasGroup.UpdateState(true);
     }
 }
+
+public enum LevelsName
+{
+
+    NotSet = -1,
+    Inbound = 0,
+    Outbound = 1,
+}

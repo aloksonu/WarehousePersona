@@ -3230,6 +3230,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 471974589}
   messegeTextMeshProUGUI: {fileID: 424471546}
   homeBtn: {fileID: 698205}
+  levelsName: 1
 --- !u!1 &587053197
 GameObject:
   m_ObjectHideFlags: 0

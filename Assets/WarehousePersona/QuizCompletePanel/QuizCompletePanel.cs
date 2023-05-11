@@ -11,14 +11,15 @@ public class QuizCompletePanel : MonoSingleton<QuizCompletePanel>
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private TextMeshProUGUI messegeTextMeshProUGUI;
     [SerializeField] private Button homeBtn;
+    public LevelsName levelsName;
     void Start()
     {
         canvasGroup.UpdateState(false, 0);
-        homeBtn.onClick.AddListener(OnHomeButtonPressed);
+        homeBtn.onClick.AddListener(()=>OnHomeButtonPressed(levelsName.ToString()));
     }
     private void OnDestroy()
     {
-        homeBtn.onClick.RemoveListener(OnHomeButtonPressed);
+        homeBtn.onClick.RemoveAllListeners();
         canvasGroup.UpdateState(false, 0);
     }
 
@@ -28,13 +29,13 @@ public class QuizCompletePanel : MonoSingleton<QuizCompletePanel>
         canvasGroup.UpdateState(true);
     }
 
-    internal void OnHomeButtonPressed()
+    internal void OnHomeButtonPressed(string sceneName)
     {
-        StartCoroutine(UloadScene());
+        StartCoroutine(UloadScene(sceneName));
     }
 
-    IEnumerator UloadScene()
+    IEnumerator UloadScene(string sceneName)
     {
-        yield return SceneManager.UnloadSceneAsync("Inbound");
+        yield return SceneManager.UnloadSceneAsync(sceneName);
     }
 }
