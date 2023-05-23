@@ -1,3 +1,4 @@
+using Audio.Warehouse;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class LevelPanel : MonoBehaviour
 
     internal void OnInboundButtonPressed(string currentSceneName)
     {
+        GenericAudioManager.Instance.PlaySound(AudioName.ButtonClick);
         _canvasGroup.UpdateState(false, _fadeDuration, () => {
             StartCoroutine(_loadGame(currentSceneName));
         });
@@ -27,6 +29,8 @@ public class LevelPanel : MonoBehaviour
 
     private IEnumerator _loadGame(string currentSceneName)
     {
+        //GenericAudioManager.Instance.PlaySound(AudioName.ButtonClick);
+        //yield return new WaitForSeconds(GenericAudioManager.Instance.GetAudioLength(AudioName.ButtonClick));
         LoadingPanel.Instance.BringIn();
         yield return SceneManager.LoadSceneAsync(currentSceneName, LoadSceneMode.Additive);
         LoadingPanel.Instance.BringOut();

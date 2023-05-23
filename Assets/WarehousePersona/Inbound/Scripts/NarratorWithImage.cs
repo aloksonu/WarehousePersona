@@ -1,3 +1,4 @@
+using Audio.Warehouse;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -54,16 +55,28 @@ public class NarratorWithImage : MonoSingleton<NarratorWithImage>
     }
 
     internal void BringInNarrator(string narratorText,
-             Action onCompleteNarrator = null)
+             Action onCompleteNarrator = null, AudioName audioName=AudioName.NotSet)
     {
         _narratorText = narratorText;
         panelText.text = _narratorText;
         _onCompleteNarrator = onCompleteNarrator;
-        _canvasGroup.UpdateState(true, _fadeDuration);
+        _canvasGroup.UpdateState(true, _fadeDuration, () => {StartCoroutine(PlayAudio(audioName));});
+    }
+
+    private IEnumerator PlayAudio(AudioName audioName)
+    {
+        if(audioName != AudioName.NotSet) {
+        btnClose.interactable = false;
+        yield return new WaitForSeconds(0.5f);
+        GenericAudioManager.Instance.PlaySound(audioName);
+        yield return new WaitForSeconds(GenericAudioManager.Instance.GetAudioLength(audioName));
+        btnClose.interactable = true;
+        }
     }
 
     internal void BringOutNarrator()
     {
+        GenericAudioManager.Instance.PlaySound(AudioName.ButtonClick);
         if (_onCompleteNarrator != null)
         {
             _onCompleteNarrator();

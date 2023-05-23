@@ -1,3 +1,4 @@
+using Audio.Warehouse;
 using GamePlay.Quiz;
 using System.Collections;
 using System.Collections.Generic;
@@ -83,7 +84,7 @@ public class InboundManager : MonoSingleton<InboundManager>
     {
         NarratorPanel.Instance.BringOutNarrator();
         _vCam[1].SetActive(true);
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NTransport, StartAssignGate);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NTransport, StartAssignGate, AudioName.Transport);
     }
 
     internal void StartAssignGate()
@@ -100,7 +101,7 @@ public class InboundManager : MonoSingleton<InboundManager>
     internal void StartDefOfAssignGate()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NAssignLane, StartVarification);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NAssignLane, StartVarification, AudioName.AssignLane);
     }
 
     internal void StartVarification()
@@ -116,7 +117,7 @@ public class InboundManager : MonoSingleton<InboundManager>
     internal void StartDefOfVarification()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NVerification, StartUnload);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NVerification, StartUnload, AudioName.Verification1);
     }
     internal void StartUnload()
     {
@@ -130,7 +131,7 @@ public class InboundManager : MonoSingleton<InboundManager>
     internal void StartDefOfUnload()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NUnload, StartChecking);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NUnload, StartChecking, AudioName.Unload);
     }
 
     internal void StartChecking()
@@ -145,7 +146,7 @@ public class InboundManager : MonoSingleton<InboundManager>
     internal void StartDefOfChecking()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NChecking, StartReceiving);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NChecking, StartReceiving, AudioName.Checking);
     }
 
     internal void StartReceiving()
@@ -160,7 +161,7 @@ public class InboundManager : MonoSingleton<InboundManager>
     internal void StartDefOfReceiving()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NReceiving, StartPutaway);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NReceiving, StartPutaway, AudioName.Receiving);
     }
 
     internal void StartPutaway()
@@ -175,7 +176,7 @@ public class InboundManager : MonoSingleton<InboundManager>
     internal void StartDefOfPutaway()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway, Quiz_01);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway, Quiz_01, AudioName.PutAway);
     }
 
     //internal void callPutawayNarrator()

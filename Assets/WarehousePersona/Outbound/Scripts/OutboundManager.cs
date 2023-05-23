@@ -1,3 +1,4 @@
+using Audio.Warehouse;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -61,7 +62,7 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfOrderReceiving()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NOrderReceiving, StartPicking);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NOrderReceiving, StartPicking, AudioName.OrderReceiving);
     }
     internal void StartPicking()
     {
@@ -75,7 +76,7 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfPicking()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPicking, StartSorting);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPicking, StartSorting, AudioName.Picking);
     }
     internal void StartSorting()
     {
@@ -88,7 +89,7 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfSorting()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NSorting, StartLebelling);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NSorting, StartLebelling, AudioName.Sorting);
     }
 
     internal void StartLebelling()
@@ -102,7 +103,7 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfLebelling()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NLebelling, StartLoading);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NLebelling, StartLoading, AudioName.Lebelling);
     }
 
     internal void StartLoading()
@@ -116,7 +117,7 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfLoading()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NLoading, StartVerification);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NLoading, StartVerification, AudioName.Loading);
     }
 
     internal void StartVerification()
@@ -130,7 +131,7 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfVerification()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NVerification2, StartShipping);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NVerification2, StartShipping, AudioName.Verification2);
     }
 
     internal void StartShipping()
@@ -144,7 +145,7 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfShipping()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NShipping, BringQuizCompletePanel);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NShipping, BringQuizCompletePanel, AudioName.Shipping);
     }
 
     internal void BringQuizCompletePanel()
