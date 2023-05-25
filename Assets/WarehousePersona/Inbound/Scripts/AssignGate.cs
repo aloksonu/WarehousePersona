@@ -7,24 +7,27 @@ public class AssignGate : MonoBehaviour
     internal Rigidbody2D rbd2;
     internal float moveSpeed;
     internal bool isMove;
+    bool isCompleted;
     void Start()
     {
         rbd2 = GetComponent<Rigidbody2D>();
-        moveSpeed = 700f;
+        moveSpeed = 300f;
         isMove = false;
+        isCompleted = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //if (isMove == true && this.transform.position.x <= 3.7)
-        //{
-        //    rbd2.velocity = Vector2.right * moveSpeed * Time.deltaTime;
-        //}
-        //else
-        //{
-        //    rbd2.velocity = Vector2.left * 0;
-        //}
+        if (isMove == true && isCompleted == false)
+        {
+            this.rbd2.velocity = Vector2.right * moveSpeed * Time.deltaTime;
+            //Debug.Log("Moving");
+        }
+        else
+        {
+            this.rbd2.velocity = Vector2.left * 0;
+            //Debug.Log("Stoped");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -32,6 +35,7 @@ public class AssignGate : MonoBehaviour
         if (collision.gameObject.GetComponent<ProcessName>().strProcessName == "AssignGate")
         {
             Debug.Log("AssignGate Done");
+            isCompleted = true;
             StartCoroutine(StartDefOfAssignGate());
         }
     }
@@ -44,11 +48,11 @@ public class AssignGate : MonoBehaviour
     public void MoveStart()
     {
         isMove = true;
-        rbd2.velocity = Vector2.right * moveSpeed * Time.deltaTime;
+        //rbd2.velocity = Vector2.right * moveSpeed * Time.deltaTime;
     }
     public void MoveStop()
     {
         isMove = false;
-        rbd2.velocity = Vector2.left * 0;
+        //rbd2.velocity = Vector2.left * 0;
     }
 }

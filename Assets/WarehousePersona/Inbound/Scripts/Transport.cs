@@ -9,19 +9,30 @@ public class Transport : MonoBehaviour
     internal bool isMove;
     internal bool isMoveStarted;
     internal bool isMoveStoped;
+    bool isCompleted;
 
     void Start()
     {
         rbd2 = GetComponent<Rigidbody2D>();
-        moveSpeed = 700f;
+        moveSpeed = 500f;
         isMove = false;
         isMoveStarted = false;
         isMoveStoped = false;
+        isCompleted = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-
+        if (isMove == true && isCompleted == false)
+        {
+            this.rbd2.velocity = Vector2.right * moveSpeed * Time.deltaTime;
+            //Debug.Log("Moving");
+        }
+        else
+        {
+            this.rbd2.velocity = Vector2.left * 0;
+            //Debug.Log("Stoped");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -29,6 +40,7 @@ public class Transport : MonoBehaviour
         if(collision.gameObject.GetComponent<ProcessName>().strProcessName == "Transport")
         {
             Debug.Log("Transport Done");
+            isCompleted = true;
             StartCoroutine(StartAssignGateE());
         }
     }
@@ -42,14 +54,14 @@ public class Transport : MonoBehaviour
     public void MoveStart()
     {
         isMove = true;
-        isMoveStarted = true;
-        rbd2.velocity = Vector2.right *moveSpeed * Time.deltaTime;
-        //NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NTransport);
+        //isMoveStarted = true;
+        //rbd2.velocity = Vector2.right *moveSpeed * Time.deltaTime;
+        
     }
     public void MoveStop()
     {
         isMove = false;
-        isMoveStoped = true;
-        rbd2.velocity = Vector2.left * 0;
+        //isMoveStoped = true;
+        //rbd2.velocity = Vector2.left * 0;
     }
 }
