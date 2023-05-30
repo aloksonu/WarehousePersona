@@ -1,10 +1,24 @@
 using Audio.Warehouse;
+using GamePlay.Quiz;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
 
 public class OutboundManager : MonoSingleton<OutboundManager>
 {
+
+    private const string QUIZ01 = "The process of organising the items based on their destination and shipment method called ......";
+    private const string QUIZ01_A = "Sorting.";
+    private const string QUIZ01_B = "Receiving.";
+    private const string QUIZ01_C = "Lebelling.";
+    private const string QUIZ01_D = "Shipping.";
+
+    private const string QUIZ02 = "......... is a The process of selecting and retrieving the items from the inventory to fulfill the order";
+    private const string QUIZ02_A = "Picking.";
+    private const string QUIZ02_B = "Sorting.";
+    private const string QUIZ02_C = "Lebelling.";
+    private const string QUIZ02_D = "Shipping.";
+
     public GameObject orderReceivingEnvoirnment;
     public Button btnOrderReceiving;
 
@@ -145,9 +159,34 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfShipping()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NShipping, BringQuizCompletePanel, AudioName.Shipping);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NShipping, Quiz_01, AudioName.Shipping);
+    }
+    internal void Quiz_01()
+    {
+        UiBg.Instance.BringIn();
+        Quizcontroller.Instance.BringQuizPanel(Quiz_02, Quiz_02, QUIZ01,
+            QUIZ01_A, new string[]
+            {
+                    QUIZ01_B, QUIZ01_C, QUIZ01_D
+            });
     }
 
+    internal void Quiz_02()
+    {
+        Quizcontroller.Instance.BringQuizPanel(BringQuizCompletePanel, BringQuizCompletePanel, QUIZ02,
+           QUIZ02_A, new string[]
+           {
+                    QUIZ02_B, QUIZ02_C, QUIZ02_D
+           });
+    }
+    internal void Quiz_03()
+    {
+        //Quizcontroller.Instance.BringQuizPanel(Quiz_04, Quiz_04, QUIZ03,
+        //    QUIZ03_A, new string[]
+        //    {
+        //           QUIZ03_B, QUIZ03_C, QUIZ03_D
+        //    });
+    }
     internal void BringQuizCompletePanel()
     {
         QuizCompletePanel.Instance.BringPanel();

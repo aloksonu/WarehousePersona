@@ -1198,7 +1198,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 266966392}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1564,13 +1564,13 @@ RectTransform:
   - {fileID: 19863665}
   - {fileID: 1313709533}
   - {fileID: 103179373}
+  - {fileID: 1490831459}
+  - {fileID: 1193065449}
+  - {fileID: 332495103}
   - {fileID: 182064048}
   - {fileID: 1852272996}
   - {fileID: 577823093}
-  - {fileID: 1490831459}
-  - {fileID: 1193065449}
   - {fileID: 559453903}
-  - {fileID: 332495103}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2128,7 +2128,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 266966392}
-  m_RootOrder: 17
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3066,7 +3066,7 @@ RectTransform:
   - {fileID: 1777339506}
   - {fileID: 820637975}
   m_Father: {fileID: 266966392}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3170,7 +3170,7 @@ RectTransform:
   m_Children:
   - {fileID: 471974588}
   m_Father: {fileID: 266966392}
-  m_RootOrder: 13
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3304,7 +3304,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -5135,7 +5135,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850687722}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &850687724
 Camera:
   m_ObjectHideFlags: 0
@@ -6274,7 +6274,7 @@ RectTransform:
   m_Children:
   - {fileID: 1144697135}
   m_Father: {fileID: 266966392}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7576,7 +7576,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -7965,7 +7965,7 @@ RectTransform:
   - {fileID: 766291975}
   - {fileID: 301461192}
   m_Father: {fileID: 266966392}
-  m_RootOrder: 14
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8934,7 +8934,7 @@ RectTransform:
   m_Children:
   - {fileID: 2039486215}
   m_Father: {fileID: 266966392}
-  m_RootOrder: 12
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9200,7 +9200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1893944683
 MonoBehaviour:
   m_ObjectHideFlags: 0

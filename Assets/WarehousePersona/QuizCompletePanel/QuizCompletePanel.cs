@@ -25,7 +25,7 @@ public class QuizCompletePanel : MonoSingleton<QuizCompletePanel>
 
     internal void BringPanel()
     {
-        messegeTextMeshProUGUI.text = "You have scored " + ScoreManager.Instance.GetScore().ToString() + "out of" + ScoreManager.Instance.GetMaxScore().ToString();
+        messegeTextMeshProUGUI.text = "You have scored "+" " + ScoreManager.Instance.GetScore().ToString() + " " + "out of" + " " + ScoreManager.Instance.GetMaxScore().ToString();
         canvasGroup.UpdateState(true);
     }
 
