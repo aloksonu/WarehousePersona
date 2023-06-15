@@ -159,7 +159,7 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void StartDefOfShipping()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NShipping, Quiz_01, AudioName.Shipping);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NShipping,CallLevelComplete, AudioName.Shipping);
     }
     internal void Quiz_01()
     {
@@ -190,5 +190,9 @@ public class OutboundManager : MonoSingleton<OutboundManager>
     internal void BringQuizCompletePanel()
     {
         QuizCompletePanel.Instance.BringPanel();
+    }
+    private void CallLevelComplete()
+    {
+        LevelComplete.Instance.BringIn();
     }
 }

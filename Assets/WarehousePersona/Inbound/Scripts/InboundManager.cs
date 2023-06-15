@@ -51,6 +51,7 @@ public class InboundManager : MonoSingleton<InboundManager>
         NarratorPanel.Instance.BringInNarrator(NarratorPanel.Instance.NInbound);
         DesableAll();
         StartTransport();
+        //StartPutaway();
     }
 
 
@@ -176,7 +177,7 @@ public class InboundManager : MonoSingleton<InboundManager>
     internal void StartDefOfPutaway()
     {
         NarratorPanel.Instance.BringOutNarrator();
-        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway, Quiz_01, AudioName.PutAway);
+        NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway,CallLevelComplete, AudioName.PutAway);
     }
 
     //internal void callPutawayNarrator()
@@ -184,6 +185,10 @@ public class InboundManager : MonoSingleton<InboundManager>
     //    NarratorWithImage.Instance.BringInNarrator(NarratorWithImage.Instance.NPutAway, Quiz_01);
     //}
 
+    private void CallLevelComplete()
+    {
+        LevelComplete.Instance.BringIn();
+    }
 
     internal void Quiz_01()
     {
