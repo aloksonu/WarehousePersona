@@ -1,58 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using WarehousePersona.Inbound.Scripts;
 
-public class Shiping : MonoBehaviour
+namespace WarehousePersona.Outbound.Scripts
 {
-    internal Rigidbody2D rbd2;
-    internal float moveSpeed;
-    internal bool isMove;
-
-    public Move m1,m2;
-
-    void Start()
+    public class Shiping : MonoBehaviour
     {
-        rbd2 = GetComponent<Rigidbody2D>();
-        moveSpeed = 700f;
-        isMove = false;
-    }
+        internal Rigidbody2D rbd2;
+        internal float moveSpeed;
+        internal bool isMove;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public Move m1,m2;
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<ProcessName>().strProcessName == "Shiping")
+        void Start()
         {
-            Debug.Log("Shiping Done");
-            m1.moveRight();
-            m2.moveRight();
-            Invoke(nameof(StartDefOfShipping), 2f);
-            // StartCoroutine(StartVarificationE());
+            rbd2 = GetComponent<Rigidbody2D>();
+            moveSpeed = 700f;
+            isMove = false;
         }
-    }
-    //private IEnumerator StartVarificationE()
-    //{
-    //    yield return new WaitForSeconds(2f);
-    //    InboundManager.Instance.callVarification();
-    //}
 
-    public void MoveStart()
-    {
-        isMove = true;
-        rbd2.velocity = Vector2.right * moveSpeed * Time.deltaTime;
-    }
-    public void MoveStop()
-    {
-        isMove = false;
-        rbd2.velocity = Vector2.left * 0;
-    }
+        // Update is called once per frame
+        void Update()
+        {
+        
+        }
 
-    private void StartDefOfShipping()
-    {
-        OutboundManager.Instance.StartDefOfShipping();
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.GetComponent<ProcessName>().strProcessName == "Shiping")
+            {
+                Debug.Log("Shiping Done");
+                m1.moveRight();
+                m2.moveRight();
+                Invoke(nameof(StartDefOfShipping), 2f);
+                // StartCoroutine(StartVarificationE());
+            }
+        }
+        //private IEnumerator StartVarificationE()
+        //{
+        //    yield return new WaitForSeconds(2f);
+        //    InboundManager.Instance.callVarification();
+        //}
+
+        public void MoveStart()
+        {
+            isMove = true;
+            rbd2.velocity = Vector2.right * moveSpeed * Time.deltaTime;
+        }
+        public void MoveStop()
+        {
+            isMove = false;
+            rbd2.velocity = Vector2.left * 0;
+        }
+
+        private void StartDefOfShipping()
+        {
+            OutboundManager.Instance.StartDefOfShipping();
+        }
     }
 }

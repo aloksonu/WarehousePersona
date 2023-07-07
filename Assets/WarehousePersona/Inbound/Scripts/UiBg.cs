@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utilities;
 
-public class UiBg : MonoSingleton<UiBg>
+namespace WarehousePersona.Inbound.Scripts
 {
-    [SerializeField] private CanvasGroup _canvasGroup;
-    private float _fadeDuration = 0.2f;
-    void Start()
+    public class UiBg : MonoSingleton<UiBg>
     {
-        _canvasGroup.UpdateState(false, 0);
-    }
-    internal void BringIn()
-    {
-        _canvasGroup.UpdateState(true, _fadeDuration);
-    }
-    internal void BringOut()
-    {
-        _canvasGroup.UpdateState(false, _fadeDuration);
+        [SerializeField] private CanvasGroup _canvasGroup;
+        private float _fadeDuration = 0.2f;
+        void Start()
+        {
+            _canvasGroup.UpdateState(false, 0);
+        }
+        internal void BringIn()
+        {
+            _canvasGroup.UpdateState(true, _fadeDuration);
+        }
+        internal void BringOut()
+        {
+            _canvasGroup.UpdateState(false, _fadeDuration);
+        }
     }
 }

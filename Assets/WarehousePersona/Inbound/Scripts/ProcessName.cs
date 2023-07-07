@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ProcessName : MonoBehaviour
+namespace WarehousePersona.Inbound.Scripts
 {
-    public string strProcessName;
-    void Start()
+    public class ProcessName : MonoBehaviour
     {
+        public string strProcessName;
+        void Start()
+        {
         
-    }
+        }
 
+    }
 }

@@ -1,68 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DragAndDrop2d : MonoBehaviour
+namespace WarehousePersona.Sandbox
 {
-    Vector3 mousePosition;
-    Vector3 initialPosition;
-    [SerializeField] private Transform otherTransform;
-    private bool isDropDone;
-
-    void Start()
+    public class DragAndDrop2d : MonoBehaviour
     {
-        initialPosition = this.transform.position;
-        isDropDone = false;
-    }
+        Vector3 mousePosition;
+        Vector3 initialPosition;
+        [SerializeField] private Transform otherTransform;
+        private bool isDropDone;
 
-    private Vector3 GetMousePosition()
-    {
-        return Camera.main.WorldToScreenPoint(transform.position);
-    }
-
-    private void OnMouseDown()
-    {
-        if(isDropDone==false)
-        mousePosition = Input.mousePosition - GetMousePosition();
-    }
-
-    private void OnMouseDrag()
-    {
-        if (isDropDone == false)
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
-    }
-
-    private void OnMouseUp()
-    {
-        float distance = Vector3.Distance(transform.position, otherTransform.position);
-        if (distance > 1.5f)
+        void Start()
         {
-            transform.position = initialPosition;
+            initialPosition = this.transform.position;
+            isDropDone = false;
         }
-        else
-        {
-            isDropDone = true;
-            transform.position = otherTransform.position;
-        }
-        Debug.Log("mouse up");
-    }
 
-    //private void Update()
-    //{
-    //    float distance = Vector3.Distance(transform.position, otherTransform.position);
-    //    Debug.Log(distance);
-    //    if (distance <= 1.5f && isMouseUp == true)
-    //    {
-    //        transform.position = otherTransform.position;
-    //    }
-    //}
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    Debug.Log("colide");
-    //    if (other.gameObject.GetComponent<ProcessName>().strProcessName == "put" && isMouseUp == true)
-    //    {
-    //        Debug.Log("AssignGate Done");
-    //        transform.position = otherTransform.position;
-    //    }
-    //}
+        private Vector3 GetMousePosition()
+        {
+            return Camera.main.WorldToScreenPoint(transform.position);
+        }
+
+        private void OnMouseDown()
+        {
+            if(isDropDone==false)
+                mousePosition = Input.mousePosition - GetMousePosition();
+        }
+
+        private void OnMouseDrag()
+        {
+            if (isDropDone == false)
+                transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
+        }
+
+        private void OnMouseUp()
+        {
+            float distance = Vector3.Distance(transform.position, otherTransform.position);
+            if (distance > 1.5f)
+            {
+                transform.position = initialPosition;
+            }
+            else
+            {
+                isDropDone = true;
+                transform.position = otherTransform.position;
+            }
+            Debug.Log("mouse up");
+        }
+
+        //private void Update()
+        //{
+        //    float distance = Vector3.Distance(transform.position, otherTransform.position);
+        //    Debug.Log(distance);
+        //    if (distance <= 1.5f && isMouseUp == true)
+        //    {
+        //        transform.position = otherTransform.position;
+        //    }
+        //}
+        //void OnTriggerEnter2D(Collider2D other)
+        //{
+        //    Debug.Log("colide");
+        //    if (other.gameObject.GetComponent<ProcessName>().strProcessName == "put" && isMouseUp == true)
+        //    {
+        //        Debug.Log("AssignGate Done");
+        //        transform.position = otherTransform.position;
+        //    }
+        //}
+    }
 }

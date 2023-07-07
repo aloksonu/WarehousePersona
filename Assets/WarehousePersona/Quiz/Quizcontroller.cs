@@ -1,10 +1,10 @@
 using System;
-using Ui.ScoreSystem;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
+using WarehousePersona.Score;
 
-namespace GamePlay.Quiz
+namespace WarehousePersona.Quiz
 {
     public class Quizcontroller : MonoSingleton<Quizcontroller>
     {
